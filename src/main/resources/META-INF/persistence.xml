@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit transaction-type="JTA" name="seguranca">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <jta-data-source>java:jboss/datasources/seguDS</jta-data-source>
+        <class>br.com.aquiles.security.bean.UserKey</class>
+        <class>br.com.aquiles.security.bean.Transacao</class>
+        <class>br.com.aquiles.security.bean.Documento</class>
+        <class>br.com.aquiles.security.bean.Dominios</class>
+        <class>br.com.aquiles.security.bean.Funcao</class>
+        <class>br.com.aquiles.security.bean.Modulo</class>
+        <class>br.com.aquiles.security.bean.Perfil</class>
+        <class>br.com.aquiles.security.bean.Usuario</class>
+        <class>br.com.aquiles.security.bean.Autorizacao</class>
+        <class>br.com.aquiles.security.bean.SmDocuIcone</class>
+        <class>br.com.aquiles.security.bean.PerfilModulo</class>
+        <class>br.com.aquiles.persistence.bean.AbstractEntityAtu</class>
+        <class>br.com.aquiles.persistence.bean.AbstractEntity</class>
+        <class>br.com.aquiles.security.bean.pk.PerfilModuloPK</class>
+        <class>br.com.aquiles.security.bean.pk.FuncaoPK</class>
+        <class>br.com.aquiles.security.bean.pk.AutorizacaoPK</class>
+        <class>br.com.aquiles.security.bean.pk.DocumentoPK</class>
+        <class>br.com.aquiles.security.bean.pk.TransacaoPK</class>
+        <class>br.com.aquiles.security.bean.pk.SmDocuIconePK</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <shared-cache-mode>NONE</shared-cache-mode>
+        <properties>
+            <!-- Properties for Hibernate -->
+            <property name="hibernate.hbm2ddl.auto" value="none"/>
+            <property name="hibernate.connection.characterEncoding" value="UTF-8"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
+        </properties>
+    </persistence-unit>
+</persistence>
