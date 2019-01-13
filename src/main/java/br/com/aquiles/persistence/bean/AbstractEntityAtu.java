@@ -1,6 +1,9 @@
 package br.com.aquiles.persistence.bean;
 
+import br.com.aquiles.persistence.listener.EntityListenerAtu;
+
 import javax.persistence.Column;
+import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -12,6 +15,7 @@ import java.util.Date;
  * @author Ronaldo Lanhellas
  * */
 @MappedSuperclass
+@EntityListeners(EntityListenerAtu.class)
 public abstract class AbstractEntityAtu extends AbstractEntity {
 
 	/**

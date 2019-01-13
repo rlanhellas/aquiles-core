@@ -1,5 +1,7 @@
 package br.com.aquiles.persistence.bean;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.apache.log4j.Logger;
 
 import javax.persistence.MappedSuperclass;
@@ -13,6 +15,7 @@ import java.util.UUID;
  * @author Ronaldo Lanhellas
  */
 @MappedSuperclass
+@JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class)
 public abstract class AbstractEntity implements Serializable, Cloneable, Selectable {
 
     /**
