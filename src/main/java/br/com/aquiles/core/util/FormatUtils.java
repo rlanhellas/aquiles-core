@@ -11,27 +11,29 @@ import java.util.Date;
 /**
  * Created by rlanhellas on 30/05/2017.
  */
-public class FormatUtils {
+public abstract class FormatUtils {
 
-    private static final SimpleDateFormat SDF_YYYYMMDD = new SimpleDateFormat("yyyyMMdd");
-    private static final SimpleDateFormat SDF_DDMMYYYY = new SimpleDateFormat("ddMMyyyy");
-    private static final SimpleDateFormat SDF_DD_MM_YYYY = new SimpleDateFormat("dd-MM-yyyy");
-    private static final SimpleDateFormat SDF_DDMMYYYY_BARRA = new SimpleDateFormat("dd/MM/yyyy");
-    private static final SimpleDateFormat SDF_YYYY_MM_DD_HIFEN = new SimpleDateFormat("yyyy-MM-dd");
-    private static final SimpleDateFormat SDF_YYYY_MM_DD = new SimpleDateFormat("yyyyMMdd");
-    private static final SimpleDateFormat SDF_YYYYMMDD_HHMMSS = new SimpleDateFormat("yyyyMMdd HH:mm:ss");
+    private FormatUtils() {
+    }
+
+    private static final String SDF_YYYYMMDD = "yyyyMMdd";
+    private static final String SDF_DDMMYYYY = "ddMMyyyy";
+    private static final String SDF_DD_MM_YYYY = "dd-MM-yyyy";
+    private static final String SDF_DDMMYYYY_BARRA = "dd/MM/yyyy";
+    private static final String SDF_YYYY_MM_DD_HIFEN = "yyyy-MM-dd";
+    private static final String SDF_YYYY_MM_DD = "yyyyMMdd";
 
     public static String formatCPFCNPJ(String value) {
-        if (value == null){
+        if (value == null) {
             return "";
         }
         Formatter formatter;
-        if (value.toString().length() == 11) {
+        if (value.length() == 11) {
             formatter = new CPFFormatter();
-            return formatter.format(value.toString());
-        } else if (value.toString().length() == 14) {
+            return formatter.format(value);
+        } else if (value.length() == 14) {
             formatter = new CNPJFormatter();
-            return formatter.format(value.toString());
+            return formatter.format(value);
         }
         return value;
     }
@@ -45,27 +47,27 @@ public class FormatUtils {
     }
 
     public static String formatDate(Date value) {
-        return SDF_YYYYMMDD.format(value);
+        return new SimpleDateFormat(SDF_YYYYMMDD).format(value);
     }
 
     public static String formatDateDMY(Date value) {
-        return SDF_DDMMYYYY.format(value);
+        return new SimpleDateFormat(SDF_DDMMYYYY).format(value);
     }
 
     public static String formatDateDMYComHifen(Date value) {
-        return SDF_DD_MM_YYYY.format(value);
+        return new SimpleDateFormat(SDF_DD_MM_YYYY).format(value);
     }
 
     public static String formatDateDMYComBarra(Date value) {
-        return SDF_DDMMYYYY_BARRA.format(value);
+        return new SimpleDateFormat(SDF_DDMMYYYY_BARRA).format(value);
     }
 
     public static String formatDateYMDComHifen(Date value) {
-        return SDF_YYYY_MM_DD_HIFEN.format(value);
+        return new SimpleDateFormat(SDF_YYYY_MM_DD_HIFEN).format(value);
     }
 
     public static String formatDateYMD(Date value) {
-        return SDF_YYYY_MM_DD.format(value);
+        return new SimpleDateFormat(SDF_YYYY_MM_DD).format(value);
     }
 
 
