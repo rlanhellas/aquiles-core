@@ -45,7 +45,7 @@ public class ConsultaCEPService extends GenericService {
         retornoConsultaCEP.setBairro(linkedTreeMap.get("bairro").toString());
         retornoConsultaCEP.setLocalidade(linkedTreeMap.get("localidade").toString());
         retornoConsultaCEP.setUf(linkedTreeMap.get("uf").toString());
-        retornoConsultaCEP.setUnidade(linkedTreeMap.get("unidade").toString());
+        retornoConsultaCEP.setUnidade(linkedTreeMap.get("unidade") != null ? linkedTreeMap.get("unidade").toString() : null);
         retornoConsultaCEP.setIbge(linkedTreeMap.get("ibge").toString());
         retornoConsultaCEP.setGia(linkedTreeMap.get("gia").toString());
         return retornoConsultaCEP;
